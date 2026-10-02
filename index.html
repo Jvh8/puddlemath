@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Puddle Games</title>
+<meta name="description" content="Free browser games and 2 player games. Pick a game and play instantly.">
+<meta name="theme-color" content="#04040a">
+<meta property="og:title" content="Puddle Games">
+<meta property="og:description" content="Free browser games and 2 player games. Pick a game and play instantly.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2304040a'/%3E%3Cellipse cx='30' cy='44' rx='20' ry='14' fill='%23fff'/%3E%3Ccircle cx='34' cy='22' r='14' fill='%23fff'/%3E%3Cpath d='M46 24q13 0 11 6-2 5-13 3z' fill='%23ff8a1f'/%3E%3Ccircle cx='37' cy='19' r='3' fill='%2304040a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<noscript><p>Puddle Games needs JavaScript. Please turn it on to play.</p></noscript>
+<div id="bg"></div><canvas id="dots" aria-hidden="true"></canvas><div id="dimEl"></div>
+<header class="top glass">
+  <h1 class="logo"><svg viewBox='0 0 64 64' aria-hidden='true'><ellipse cx='30' cy='44' rx='22' ry='15' fill='#fff' stroke='#111' stroke-width='4'/><circle cx='34' cy='22' r='15' fill='#fff' stroke='#111' stroke-width='4'/><path d='M46 24q14 0 12 7-2 5-14 3z' fill='#ff8a1f' stroke='#111' stroke-width='4' stroke-linejoin='round'/><circle cx='37' cy='19' r='3' fill='#111'/></svg>Puddle Games</h1>
+  <div class="tabs"><button id="tG" aria-pressed="true">Games</button><button id="tS" aria-pressed="false">Settings</button></div>
+  <form id="sf"><input id="q" type="search" placeholder="Search games" aria-label="Search games"></form>
+</header>
+<main class="wrap">
+  <section id="games">
+    <div class="chips" id="chips"></div>
+    <div id="home">
+      <div id="rows"></div>
+      <h2 id="sec"><span id="secName">All games</span><span class="count" id="cnt"></span></h2>
+      <div class="grid" id="grid"></div>
+      <p class="foot">Embedded games are provided by <a href="https://www.onlinegames.io/t/embeddable-games-for-websites/" target="_blank" rel="noopener">OnlineGames.io</a> through its free publisher program, and 2 player games from <a href="https://www.twoplayergames.org/" target="_blank" rel="noopener">TwoPlayerGames.org</a>.</p>
+      <details class="foot"><summary>Add a game by embed URL</summary>
+        <form id="add"><input id="an" placeholder="Game name" required><input id="au" type="url" placeholder="Embed URL (https://...)" required><button class="act" type="submit">Add game</button></form>
+      </details>
+    </div>
+    <div id="stage">
+      <div class="bar"><button class="back" id="back">Back</button><h2 id="gtitle"></h2></div>
+      <div class="play glass" id="play"></div>
+    </div>
+  </section>
+  <section id="settings" hidden>
+    <div class="set glass">
+      <h2>Theme</h2>
+      <p class="hint">A theme sets the background glow, the dot color, and the button color.</p>
+      <div class="sw" id="sw" role="group" aria-label="Themes"></div>
+      <h2>Background picture</h2>
+      <p class="hint">Use your own picture instead of the theme background. Upload one from your device, or paste a link to an image.</p>
+      <div class="row">
+        <label class="act">Upload a picture<input class="vh" type="file" id="bgfile" accept="image/*"></label>
+        <button class="act" id="rmimg" type="button">Remove picture</button>
+      </div>
+      <form id="bgf"><input id="bgu" type="url" placeholder="https://example.com/wallpaper.jpg" aria-label="Background image link"><button class="act" type="submit">Apply link</button></form>
+      <p id="bgmsg" class="hint" role="status"></p>
+      <div class="row"><label for="dim">Dim picture</label><input id="dim" type="range" min="0" max="80" value="0"></div>
+      <h2>Effects</h2>
+      <div class="row"><label><input type="checkbox" id="dotsToggle" checked> Moving dots</label></div>
+      <h2>Your games</h2>
+      <div class="row"><button class="act" id="clrRecent" type="button">Clear recently played</button><button class="act" id="clrFav" type="button">Clear favorites</button></div>
+      <p id="gmsg" class="hint" role="status"></p>
+      <div class="row"><button class="act" id="rst" type="button">Reset all settings</button></div>
+    </div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/games.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
